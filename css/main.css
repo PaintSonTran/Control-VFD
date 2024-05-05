@@ -1,0 +1,138 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    background-color: white;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    margin: 0px auto;
+    max-width: 960px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 0px;
+    transition: all 0.5s ease-in-out;
+}
+
+    header.sticky {
+        background: #d4cfcf;
+        opacity: 1;
+        padding: 15px 0px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.75);
+        border-bottom: 1px solid #d4cfcf;
+    }
+
+        header.sticky #main-menu a {
+            color: black;
+        }
+            header.sticky #main-menu a:hover {
+                color: #C46210;
+            }
+        header.sticky #main-menu li .active {
+           color: #ff0000;
+            
+        }
+
+        header.sticky #logo {
+            color: black;
+        }
+
+.inner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul#main-menu {
+    display: flex;
+}
+
+    ul#main-menu a {
+        text-transform: uppercase;
+        padding: 10px 20px;
+        color: black;
+        display: block;
+        font-weight: bold;
+    }
+#main-menu a:hover {
+    color: #C46210;
+}
+
+/* Màu sáng khi được chọn */
+#main-menu li .active {
+    color: #ff0000;
+    
+}
+
+#logo {
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    display: block;
+}
+
+#banner {
+    background-image: url('../img/spkt_baner.jpg');
+    min-height: 480px;
+    width: 100%;
+}
+
+#main-content h1 {
+    padding: 20px 0px;
+}
+
+#main-content h2 {
+    padding: 20px 0px;
+}
+
+#main-content h3 {
+    padding-top: 100px;
+    color: brown;
+}
+
+#main-content p {
+    margin-bottom: 1.2rem;
+}
+
+/*Footer*/
+#fotter {
+    background: #565a5b;
+    padding: 5px 0px;
+    clear: both;
+}
+
+    #fotter p {
+        color: white;
+    }
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.col-md-3 {
+    flex: 1;
+    margin-left: 130px;
+    margin-right: 80px;
+}

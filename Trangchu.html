@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Trang chủ</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop()) {
+                    $('header').addClass('sticky');
+                } else {
+                    $('header').removeClass('sticky');
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Lấy đường dẫn trang hiện tại
+            var currentPath = window.location.pathname;
+
+            // Nếu đường dẫn kết thúc bằng '/' (ví dụ: "/Trangchu.html"), loại bỏ '/'
+            if (currentPath.slice(-1) === '/') {
+                currentPath = currentPath.slice(0, -1);
+            }
+
+            // Lấy tất cả các mục menu
+            var menuItems = $('#main-menu li a');
+
+            // Xác định mục menu tương ứng với trang hiện tại và thêm lớp 'active'
+            menuItems.each(function () {
+                var href = $(this).attr('href');
+
+                // Kiểm tra xem href của mục menu có phù hợp với đường dẫn hiện tại hay không
+                if (currentPath.endsWith(href)) {
+                    // Thêm lớp 'active' cho mục menu tương ứng
+                    $(this).addClass('active');
+                }
+            });
+        });
+    </script>
+    <style>
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th {
+            padding: 15px;
+            text-align: center;
+            background-color: burlywood;
+            color: white;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <style>
+        .space1 {
+            padding-top: 50px;
+        }
+    </style>
+    <style>
+        .space2 {
+            padding-left: 15px;
+            padding-bottom: 8px;
+        }
+    </style>
+    <style>
+        .space3 {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <header>
+                <div class="inner-header container">
+                    <a href="" id="logo">Đồ Án Tốt Nghiệp</a>
+                    <nav>
+                        <ul id="main-menu">
+                            <li><a href="Trangchu.html"> Giới Thiệu </a></li>
+                            <li><a href="Control.html"> Điều khiển & Giám Sát </a></li>
+                            <li><a href="Data.php"> Dữ liệu </a></li>
+                            <li><a href="Chart.php"> Biểu đồ </a></li>
+                            <li><a href="logout.php"> Đăng Xuất </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <div id="banner">
+
+            </div>
+            <!-- end header -->
+            <div id="main-content" class="container">
+                <h1>ĐỀ TÀI: ỨNG DỤNG IOT VÀO ĐIỀU KHIỂN VÀ GIÁM SÁT ĐỘNG CƠ BA PHA</h1>
+                <h2>GIẢNG VIÊN HƯỚNG DẪN: TS. TRẦN QUANG THỌ</h2>
+                <h2>DANH SÁCH THÀNH VIÊN:</h2>
+                <table>
+                    <tr>
+                        <th> HỌ VÀ TÊN </th>
+                        <th> MÃ SỐ SINH VIÊN </th>
+                    </tr>
+                    <tr>
+                        <td> Trần Ngọc Sơn </td>
+                        <td> 20142153 </td>
+
+                    </tr>
+                    <tr>
+                        <td> Huỳnh Dương Minh Hiếu </td>
+                        <td> 20142482 </td>
+                    </tr>
+                </table>
+                <h2>TÓM TẮT NỘI DUNG ĐỀ TÀI </h2>
+                <div align="center">
+                    <img src="img\mo hinh do an thuc te.jpg" width="600" height="400" title="Mô hình thực tế ứng dụng IoT vào điều khiển và giám sát động cơ 3 pha" border="0" class="space1" />
+                </div>
+                <p style="text-align: center;"><em>Hình: Mô hình thực tế</em></p>
+                <p class="space3"><b> 1. Tính cần thiết </b></p>
+                <p class="space2">
+                    Trong bối cảnh cuộc cách mạng công nghiệp 4.0, việc tích hợp và tối ưu hóa quy trình sản xuất trở thành
+                    một ưu tiên hàng đầu. Đặc biệt, trong các hệ thống công nghiệp, động cơ đóng một vai trò quan trọng, và
+                    việc giám sát và điều khiển chúng trở nên ngày càng quan trọng để đảm bảo hiệu suất cao và tiết kiệm
+                    năng lượng cho hệ thống điện.
+                </p>
+                <p class="space2">
+                    Với đề tài này sử dụng ESP32 thay vì sử dụng PLC để làm master có những ưu điểm vượt trội: Chi phí đầu
+                    tư thấp (chi phí của các Arduino, ESP,... và các phụ kiện đi kèm với nó rẻ hơn rất nhiều so với PLC),
+                    nhỏ gọn và đặc biệt là có thể giám sát và điều khiển thông qua smartphone. Với xu thế hiện nay IoT đang
+                    ngày càng phát triển, khi đó các doanh nghiệp sẽ dần thiết kế hệ thống công nghiệp tự động, thông minh
+                    bằng IoT hoặc chuyển đổi dần theo hướng IoT.
+                </p>
+                <p class="space2">
+                    Vì vậy nhóm chúng em đã chọn đề tài “ĐIỀU KHIỂN VÀ GIÁM SÁT THÔNG SỐ ĐỘNG CƠ BA PHA SỬ DỤNG ESP32 (MASTER)
+                    TRUYỀN THÔNG MODBUS RTU VỚI BIẾN TẦN OMRON 3G3MX2 (SLAVE) VÀ TRUYỀN DỮ LIỆU LÊN BLYNK” để nghiên cứu rõ hơn
+                    về điều khiển giám sát động cơ bằng ESP32 cũng như nghiên cứu giao thức truyền thông Modbus (chuẩn giao thức
+                    phổ biến hiện nay trong các hệ thống điện công nghiệp) và ngoài ra còn được tìm hiểu thêm và biến tần (bộ điều
+                    khiển động cơ phổ biến hiện nay).
+                </p>
+                <p class="space3"><b> 2. Mục tiêu của đề tài </b></p>
+                <p class="space2">
+                    Sử dụng ESP32 làm master trong giao thức truyền thông Modbus RTU với biến tần làm slave và ESP32 có thể
+                    truyền, nhận dữ liệu từ biến tần qua đó điều khiển, giám sát biến tần từ đó động cơ 3 pha được điều khiển
+                    theo ý ta và các thông số của động cơ đều được gửi về master, qua đó truyền dữ liệu lên Blynk web và app
+                    để vừa điều khiển, giám sát động cơ qua web và cả trên smartphone đều được.
+                </p>
+                <p class="space3"><b> 3. Kết quả đạt được </b></p>
+                <p class="space2">
+                    Dự án của chúng em đã đạt được những thành công trong việc điều khiển và giám sát thông số động cơ 3
+                    pha. Không những vậy chúng em còn thành công trong việc kết nối và điều khiển biến tần OMRON 3G3MX2
+                    thông qua ESP32 bằng giao thức Modbus RTU để điều chỉnh tần số để thay đổi tốc độ quay của động cơ,
+                    đọc các thông số quan trọng như điện áp, dòng điện, tần số và điều khiển hiển thị thông qua Blynk.
+                    vậy về cơ bản đã giám sát và điều khiển được động cơ bằng điện thoại hoặc máy tính. Ngoài ra nhóm
+                    chúng em còn sử dụng Encoder để đếm xung, đo tốc độ quay của động cơ.
+                </p>
+                <p class="space3"><b> 4. Kết quả chưa đạt được </b></p>
+                <p class="space2">
+                    Xảy ra hiện tượng nhiễu, đếm xung của Encoder không đúng khi đưa lên Blynk dẫn đến giám sát thông
+                    số tốc độ quay của động cơ không chính xác khi giám sát bằng điện thoại hoặc web. Thường là do
+                    nhiễu vòng nối đất và nhiễu điện từ:
+                </p>
+                <p class="space2">
+                    - Nhiễu vòng nối đất (ground loop): Do sử dụng nhiều chỗ nối đất khác trong trong hệ thống, khi
+                    xuất hiện sự chênh lệch điện áp do các dòng rò thì sẽ tạo ra dòng chạy qua các dây đất có thể
+                    tạo ra một vòng nối đất, gây ra các hiện tượng nhiễu và nhiễm từ trong hệ thống. Muốn khắc phục
+                    hiện tượng này phải sử dụng chung nối đất cho các thiết bị, điều này rất khó thực hiện cho các
+                    nhà máy lớn có các thiết bị cách xa nhau nên có thể sử dụng bộ lọc nhiễu cách ly vòng nối đất.
+                    </p>
+
+                <p class="space2">
+                    - Nhiễu điện từ (EMI): Xuất hiện khi tác động của các trường điện và từ trường từ các nguồn tạo
+                    ra dòng điện hoặc tín hiệu điện tử lên các thiết bị điện tử khác, tác động đến dây kết nối cảm
+                    biến Encoder dẫn đến Encoder đếm xung không chính xác. Để khắc phục cần sử dụng cáp xoắn và bọc
+                    chống nhiễu cho dây kết nối cảm biến, sử dụng thêm các bộ lọc chống nhiễu để nâng cao hiệu quả hơn.
+                </p>
+                               
+            </div>
+            <!-- end main-content -->
+            <div id="fotter">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p style="font-weight: bold; margin-left: 60px; font-size:20px; margin-top:10px;">Team Info</p>
+                        <p style=" width: 200px; margin-left: 60px; margin-top: 10px;">
+                            Trần Ngọc Sơn<br>
+                            Huỳnh Dương Minh Hiếu<br>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-weight: bold; margin-left: 60px; font-size: 20px; margin-top: 10px;">Support</p>
+                        <p style=" width: 200px; margin-left: 60px; margin-top: 10px;">
+                            Hỗ trợ trực tuyến: 24/7<br>
+                            0981738643
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-weight: bold; margin-left: 60px; font-size: 20px; margin-top: 10px; ">Contact Info</p>
+                        <a href="https://www.facebook.com/minh.hieu.huynh.2002">
+                            <img src="img/Facebook_Logo.png" alt="Logo Facebook" style="  margin-left: 50px; margin-top: 10px; height: 40px;">
+                        </a>
+                        <a href="https://zalo.me/g/hdspxr275">
+                            <img src="img/Zalo_Logo.png" alt="Logo Zalo" style=" margin-left: 50px; margin-top: 10px; height: 40px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- end fotter -->
+        </div>
+    </form>
+</body>
+</html>

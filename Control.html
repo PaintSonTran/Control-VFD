@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Điều khiển và giám sát</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/control.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop()) {
+                    $('header').addClass('sticky');
+                } else {
+                    $('header').removeClass('sticky');
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Lấy đường dẫn trang hiện tại
+            var currentPath = window.location.pathname;
+
+            // Nếu đường dẫn kết thúc bằng '/' (ví dụ: "/Trangchu.html"), loại bỏ '/'
+            if (currentPath.slice(-1) === '/') {
+                currentPath = currentPath.slice(0, -1);
+            }
+
+            // Lấy tất cả các mục menu
+            var menuItems = $('#main-menu li a');
+
+            // Xác định mục menu tương ứng với trang hiện tại và thêm lớp 'active'
+            menuItems.each(function () {
+                var href = $(this).attr('href');
+
+                // Kiểm tra xem href của mục menu có phù hợp với đường dẫn hiện tại hay không
+                if (currentPath.endsWith(href)) {
+                    // Thêm lớp 'active' cho mục menu tương ứng
+                    $(this).addClass('active');
+                }
+            });
+        });
+    </script>
+    <style>
+        /* Tùy chọn: Để điều chỉnh độ dày và màu sắc của đường ngang */
+        hr {
+            border: none; /* Loại bỏ border mặc định của hr */
+            border-top: 1px solid #000; /* 1px là chiều dày của đường, #000 là màu đen */
+            margin-bottom: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .warning-box {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #dc3545;
+            border-radius: 5px;
+            background-color: #E8E1E6;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translate(-50%, -50%);
+            z-index: 99999;
+            position: fixed;
+            top: 50%;
+            left: 50%;  
+            display: none;
+        }
+
+        .warning-icon {
+            font-size: 60px;
+            color: #dc3545;
+        }
+
+        .warning-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #dc3545;
+            white-space: pre-line;
+        }
+
+        .warning-message {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+     
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <header>
+                <div class="inner-header container">
+                    <a href="" id="logo">Đồ Án Tốt Nghiệp</a>
+                    <nav>
+                        <ul id="main-menu">
+                            <li><a href="Trangchu.html"> Giới Thiệu </a></li>
+                            <li><a href="Control.html"> Điều khiển & Giám Sát </a></li>
+                            <li><a href="Data.php"> Dữ liệu </a></li>
+                            <li><a href="Chart.php"> Biểu đồ </a></li>
+                            <li><a href="logout.php"> Đăng Xuất </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <div id="banner">
+
+            </div>
+            <!-- end header -->
+            <!-- Start control -->
+            <div id="main-content">
+                <h2>ĐIỀU KHIỂN VÀ GIÁM SÁT ĐỘNG CƠ KHÔNG ĐỒNG BỘ 3 PHA</h2>
+                <!-- inverter,motor - left -->
+                <div id="main-content" class="left-content">
+                    <div class="image-container">
+                        <img src="img/bientan.png" class="inverter" />
+                        <span class="text-inverter" id="fre-inverter-id">50.00</span>
+                        <button class="text-button-on" type="button">Start</button>
+                        <button class="text-button-off" type="button">Stop</button>
+                        <p class="circle-man" id="man-signal" style="display: none;"></p>
+                        <p class="circle-pwr" id="pwr-signal" style="display: none;"></p>
+                        <p class="circle-hz" id="hz-signal"></p>
+                        <p class="circle-run" id="run-signal" style="display: none;"></p>
+                    </div>
+                    <div class="image-container">
+                        <div id="Status-Keyword">TTHĐ</div>
+                    </div>
+                    <img src="img/dongco.png" class="motor" />
+                </div>
+                <!-- display data - middle -->
+                <div id="main-content" class="middle-content">
+                    <div class="image-container">
+                        <img src="img/khunghienthi.png" class="parameter1" />
+                        <span class="text-title1">Voltage:</span>
+                        <span class="text-data1" id="voltage-id">220.0 (V)</span>
+                    </div>
+                    <div class="image-container">
+                        <img src="img/khunghienthi.png" class="parameter2" />
+                        <span class="text-title2">Ampe:</span>
+                        <span class="text-data2" id="ampe-id">10.00 (A)</span>
+                    </div>
+                    <div class="image-container">
+                        <div id="Alarm-text">Alarm Display</div>
+                        <div id="Alarm-Display">----</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="img/khunghienthi.png" class="parameter3" />
+                        <span class="text-title3">Frequency:</span>
+                        <span class="text-data3" id="fre-id">50.00 (Hz)</span>
+                    </div>
+                    <div class="image-container">
+                        <img src="img/khunghienthi.png" class="parameter4" />
+                        <span class="text-title4">Rpm:</span>
+                        <span class="text-data4" id="rpm-id">3000.0 (v/p)</span>
+                    </div>
+                </div>
+                <!-- Control panel - right -->
+                <div id="main-content" class="right-content">
+
+                    <div class="control-panel">
+                        <div class="panel-name">CONTROL PANEL</div>
+                        <div class="section">
+                            <p style="font-weight: bold; margin-top: 15px;">Operational Mode:</p>
+                            <button id="button_auto" type="button">Auto</button>
+                            <button id="button_man" type="button">Man</button>
+                        </div>
+                        <div class="section">
+                            <p style="font-weight: bold;">Operational Status:</p>
+                            <button id="button_run" type="button">Run</button>
+                            <button id="button_stop" type="button">Stop</button>
+                        </div>
+                        <div class="section">
+                            <p style="font-weight: bold;">Motor Direction:</p>
+                            <button id="button_thuan" type="button">Forward</button>
+                            <button id="button_nghich" type="button">Reverse</button>
+                        </div>
+                        <hr />
+                        <div class="section">
+                            <p>
+                                <label style="font-weight: bold;" for="valuehz">Frequency (Hz):</label>
+                                <input type="number" id="set-hz" name="valuehz" style="margin-left: 35px;" placeholder="Enter Value">
+                                <button id="button_tanso" type="button">set up</button>
+                            </p>
+                        </div>
+                        <div class="section">
+                            <p>
+                                <label style="font-weight: bold;" for="valuehz-max">Frequency Max (Hz):</label>
+                                <input type="number" id="set-hz-max" name="valuehz-max" placeholder="Enter Value">
+                                <button id="button_max" type="button">set up</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>                                   
+            <!-- end control -->
+            <div id="fotter">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p style="font-weight: bold; margin-left: 60px; font-size:20px; margin-top:10px;">Team Info</p>
+                        <p style=" width: 200px; margin-left: 60px; margin-top: 10px;">
+                            Trần Ngọc Sơn<br>
+                            Huỳnh Dương Minh Hiếu<br>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-weight: bold; margin-left: 60px; font-size: 20px; margin-top: 10px;">Support</p>
+                        <p style=" width: 200px; margin-left: 60px; margin-top: 10px;">
+                            Hỗ trợ trực tuyến: 24/7<br>
+                            0981738643
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-weight: bold; margin-left: 60px; font-size: 20px; margin-top: 10px; ">Contact Info</p>
+                        <a href="https://www.facebook.com/ngocson.tran.562114/">
+                            <img src="img/Facebook_Logo.png" alt="Logo Facebook" style="  margin-left: 50px; margin-top: 10px; height: 40px;">
+                        </a>
+                        <a href="https://zalo.me/g/hdspxr275">
+                            <img src="img/Zalo_Logo.png" alt="Logo Zalo" style=" margin-left: 50px; margin-top: 10px; height: 40px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end fotter -->
+
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script src="javascript/control.js"></script>
+</body>
+</html>

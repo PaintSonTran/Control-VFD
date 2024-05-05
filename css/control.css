@@ -1,0 +1,331 @@
+﻿/*trang chinh dieu khien*/
+#main-content {
+    width: 100%;
+    background: linear-gradient(to bottom, #DCE6B4, #F1F6DF);
+}
+
+    #main-content h2 {
+        text-align: center;
+        color: #ff0000;
+        font-weight: bold;
+        /*   margin-top: 20px;
+        border: 2px solid #ff6a00;
+        padding: 10px;
+        border-radius: 10px;
+        display: inline-block;*/
+    }
+
+    #main-content.left-content {
+        width: 480px;
+        height: 580px;
+        float: left;
+    }
+
+    #main-content.middle-content {
+        width: 619.2px;
+        height: 580px;
+        float: left;
+    }
+
+    #main-content.right-content {
+        width: 420px;
+        height: 580px;
+        float: right;
+    }
+/*các hình ảnh, biến tần, khung hiển thị, động cơ*/
+.inverter {
+    width: 350px;
+    height: 200px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.parameter1 {
+    width: 250px;
+    height: 150px;
+    margin-top: 100px;
+}
+
+.parameter2 {
+    width: 250px;
+    height: 150px;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.parameter3 {
+    width: 250px;
+    height: 150px;
+    margin-top: 50px;
+}
+
+.parameter4 {
+    width: 250px;
+    height: 150px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.motor {
+    width: 300px;
+    height: 200px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+#Status-Keyword {
+    margin-left: 180px;
+    border: 2px solid #000;
+    background-color: #F1F6DF;
+    width: 100px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-390%,350%);
+}
+#Alarm-Display {
+    margin-left: 72px;
+    border: 2px solid #000;
+    background-color: #DCE6B4;
+    width: 100px;
+    height: 25px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-390%,110%);
+}
+#Alarm-text {
+    margin-left: 140px;
+    border: 2px solid #000;
+    background-color: #FF160C;
+    width: 120px;
+    height: 45px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-390%,0%);
+}
+/*Bảng điều khiển*/
+button {
+    margin: 5px;
+    padding: 0px;
+}
+#button_auto, #button_man, #button_run, #button_stop {
+    width: 50px;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 30px;
+}
+#button_thuan,#button_nghich {
+    width: 70px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+.control-panel {
+    background-color: #c2e8c2;
+    color: black;
+    margin-top: 100px;
+    margin-left: 20px;
+    width: max-content;
+}
+
+    .control-panel p {
+        margin-left: 15px;
+    }
+
+
+.panel-name {
+    background: linear-gradient(to bottom, #CDFFCC, #0BFC0B, #CDFFCC);
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.section p {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#set-hz, #set-hz-min, #set-hz-max {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+#button_tanso, #button_min, #button_max {
+    width: 50px;
+    font-weight: bold;
+    border-radius: 3px;
+    height: 23px;
+}
+/* chữ hiện trên ảnh*/
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+.text-title1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+.text-data1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,100%);
+    color: #0026ff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.text-title2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%,-50%);
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.text-data2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%,100%);
+    color: #0026ff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.text-title3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-120%);
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.text-data3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    color: #0026ff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.text-title4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-10%,-120%);
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.text-data4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%,50%);
+    color: #0026ff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+/* tần số trên inverter*/
+.text-inverter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%,-80%);
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+/*nút nhấn trên inverter*/
+.text-button-on {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-227%, 90%);
+    background-color: #0BFC0B;
+    color: black;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.text-button-off {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(5%, 93%);
+    background-color: #ff0000;
+    color: black;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/*vòng tròn hiển thị */
+.circle-run,.circle-man,.circle-pwr,.circle-hz {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff6a00;
+}
+.circle-man {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-880%, 170%);
+}
+.circle-hz {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(585%, -200%);
+}
+.circle-pwr {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(900%, -460%);
+}
+.circle-run {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(585%, -460%);
+}
